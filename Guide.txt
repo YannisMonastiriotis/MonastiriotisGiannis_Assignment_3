@@ -1,0 +1,4 @@
+Please use the folder >>(Guide)<<  with the pics from 1 to 7
+to start the application and implement our strategy
+pattern within our view. Do not worry abstraction
+has you covered :).

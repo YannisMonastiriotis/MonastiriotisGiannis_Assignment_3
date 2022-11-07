@@ -1,0 +1,57 @@
+﻿@model Assignment4.Models.Viewmodels.TshirtViewmodel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Choose your T-shirt Attributes</h2>
+
+@using (Html.BeginForm("Save", "Tshirt", FormMethod.Post))
+{
+    // @Html.HiddenFor(m => m.TshirtId)
+
+@Html.AntiForgeryToken()
+<div class=“form-group”>
+
+    <br />
+    @Html.Label("Size", new { @class = "form-control" })
+    @Html.DropDownListFor(m => m.Size.Id, new SelectList(Model.Sizes, "Id", "Type", "Price"), "Chose Size", new { @class = "form -control" })
+
+    @*@Html.HiddenFor(m => m.Size.Id)*@
+</div>
+<div class=“form-group”>
+
+    <br />
+    @Html.Label("Fabric", new { @class = "form-control" })
+
+    @Html.DropDownListFor(m => m.Fabric.Id, new SelectList(Model.Fabrics, "Id", "Type", "Price"), "Chose Fabric", new { @class = "form -control" })
+
+    @*@Html.HiddenFor(m => m.Fabric.Id)*@
+</div>
+<div class=“form-group”>
+
+    <br />
+    @Html.Label("Color", new { @class = "form-control" })
+    @Html.DropDownListFor(m => m.Color.Id, new SelectList(Model.Colors, "Id", "Type", "Price"), "Chose Color", new { @class = "form -control" })
+
+    @*@Html.HiddenFor(m => m.Color.Id)*@
+</div>
+
+<div class=“form-group”>
+
+    <br />
+    @Html.Label("Color", new { @class = "form-control" })
+
+    @Html.DropDownListFor(m => m.PaymentChoices.Keys, new SelectList(Model.PaymentChoices, "Key", "Value"), "Select Payment", new { @class = "form -control" })
+
+    @*@Html.HiddenFor(m => m.PaymentChoices.Keys)*@
+</div>
+<div>
+
+    <br />
+    @*<div class=“form-group”>
+            Payment
+            @Html.TextBoxFor(m => m.payment, new { @class = "form-control" })
+        </div>*@
+</div>
+<button type="submit" class="btn">Submit</button>
+}
